@@ -12,8 +12,12 @@ public class PaymentProcessor {
 
     public boolean makePayment(double monto){
         PaymentResponse respuesta = paymentGateway.requestPaymaent(new PaymentRequest(monto));
-
-        return true;
+        if (respuesta.getStatus() == PaymentStatus.PAGADO){
+            return true;
+        } else if (respuesta.getStatus() == PaymentStatus.RECHAZADO){
+            return false;
+        } 
+        return false;
     }
 
     public PaymentGateway getPaymentGateway() {

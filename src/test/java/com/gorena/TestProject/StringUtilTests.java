@@ -1,6 +1,7 @@
 package com.gorena.TestProject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,5 +38,29 @@ public class StringUtilTests {
             StringUtil.repeat("Pedro", -5);
         });
     }
+
+    @Test
+    void verificaCadenaVaciaNull(){
+        assertTrue(StringUtil.cadenaVacia(null));
+    }
+
+    @Test
+    void verificaCadenaVaciaEspacios(){
+        assertTrue(StringUtil.cadenaVacia("   "));
+    }
+
+
+    @Test
+    void verificaCadenaVacia(){
+        assertTrue(StringUtil.cadenaVacia(""));
+    }
+
+
+    @Test
+    void verificaCadenaVaciaConCaracteres(){
+        assertFalse(StringUtil.cadenaVacia("Genesis"));
+    }
+
+
 
 }

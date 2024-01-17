@@ -15,4 +15,17 @@ public class StringUtil {
 
      }
 
+     public static boolean cadenaVacia(String cadena){
+
+        if (cadena==null)
+           return true;
+        else{
+           if (cadena.trim().length()==0)
+                return true;
+            else
+                return false;    
+        }    
+         
+     }
+
 }
